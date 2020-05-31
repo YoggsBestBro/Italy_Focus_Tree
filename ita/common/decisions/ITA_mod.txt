@@ -1,0 +1,345 @@
+ITA_encourage_emigration = {
+	eritrean_colonization = {
+		available = {
+			550 = {
+				OR = {
+					AND = {
+						is_owned_and_controlled_by = ITA
+						compliance > 50
+					}
+					AND = {
+						ERI = { 
+							is_puppet_of = ITA
+							OR = {
+								has_autonomy_state = autonomy_reichsprotectorate
+								has_autonomy_state = autonomy_integrated_puppet
+								has_autonomy_state = autonomy_collaboration_government
+							}
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			political_power_gain = -0.25
+		}
+		remove_effect = {
+			550 = {
+				add_core_of = ITA
+			}
+			if = {
+				limit = {
+					ERI = { is_puppet_of = ITA }
+				}
+				annex_country = {
+					target = ERI
+					transfer_troops = yes
+				}
+			}
+		}
+		days_remove = 210
+		fire_only_once = yes
+	}
+	ethiopian_colonization = {
+		available = {
+			271 = {
+				OR = {
+					AND = {
+						is_owned_and_controlled_by = ITA
+						compliance > 50
+					}
+					AND = {
+						ETH = { 
+							is_puppet_of = ITA
+							OR = {
+								has_autonomy_state = autonomy_reichsprotectorate
+								has_autonomy_state = autonomy_integrated_puppet
+								has_autonomy_state = autonomy_collaboration_government
+							}
+						}
+					}
+				}
+			}
+			OR = {
+				550 = {
+					is_core_of = ITA
+				}
+				559 = {
+					is_core_of = ITA
+				}
+			}
+		}
+		modifier = {
+			political_power_gain = -0.40
+		}
+		remove_effect = {
+			271 = {
+				add_core_of = ITA
+			}
+			if = {
+				limit = {
+					ETH = { is_puppet_of = ITA }
+				}
+				annex_country = {
+					target = ETH
+					transfer_troops = yes
+				}
+			}
+		}
+		days_remove = 210
+		fire_only_once = yes
+	}
+	somalian_colonization = {
+		available = {
+			559 = {
+				OR = {
+					AND = {
+						is_owned_and_controlled_by = ITA
+						compliance > 50
+					}
+					AND = {
+						SOM = { 
+							is_puppet_of = ITA
+							OR = {
+								has_autonomy_state = autonomy_reichsprotectorate
+								has_autonomy_state = autonomy_integrated_puppet
+								has_autonomy_state = autonomy_collaboration_government
+							}
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			political_power_gain = -0.25
+		}
+		remove_effect = {
+			559 = {
+				add_core_of = ITA
+			}
+			if = {
+				limit = {
+					SOM = { is_puppet_of = ITA }
+				}
+				annex_country = {
+					target = SOM
+					transfer_troops = yes
+				}
+			}
+		}
+		days_remove = 210
+		fire_only_once = yes
+	}
+}
+ITA_influence_in_yemen = {
+	
+	
+	invest_in_yemen_civ = {
+		
+		icon = generic_construction
+		
+		highlight_state_targets = {
+			state = 293
+		}
+		
+		available = {
+			YEM = {
+				AND = {
+					exists = yes
+					NOT = {
+						has_war_with = ITA
+					}
+				}
+			}
+			num_of_available_civilian_factories > 2
+		}
+		
+		fire_only_once = yes
+		
+		modifier = {
+			civilian_factory_use = 3
+		}
+		
+		remove_effect = {
+			293 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			YEM = {
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.10
+				}
+				add_opinion_modifier = { target = ITA modifier = medium_increase }
+			}
+		}
+		
+		cost = 15
+		
+		days_remove = 60
+	}
+	
+	invest_in_yemen_mil = {
+		
+		icon = generic_construction
+		
+		highlight_state_targets = {
+			state = 293
+		}
+		
+		available = {
+			YEM = {
+				AND = {
+					exists = yes
+					NOT = {
+						has_war_with = ITA
+					}
+				}
+			}
+			num_of_available_civilian_factories > 2
+		}
+		
+		fire_only_once = yes
+		
+		modifier = {
+			civilian_factory_use = 5
+		}
+		
+		remove_effect = {
+			293 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			YEM = {
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.10
+				}
+				add_opinion_modifier = { target = ITA modifier = medium_increase }
+			}
+		}
+		
+		cost = 25
+		
+		days_remove = 40
+	}
+	
+	influence_yemeni_politics_1 = {
+		
+		icon = generic_political_discourse
+		
+		available = {
+			YEM = {
+				AND = {
+					exists = yes
+					NOT = {
+						has_war_with = ITA
+					}
+				}
+			}
+		}
+		
+		fire_only_once	= yes
+		
+		modifier = {
+			political_power_gain = -0.30
+		}
+		
+		remove_effect = {
+			YEM = {
+				add_timed_idea = { idea = fascist_influence days = 1095 }
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.15
+				}
+				add_opinion_modifier = { target = ITA modifier = medium_increase }
+			}
+		}
+		
+		cost = 30
+		
+		days_remove = 30
+	}
+	
+	influence_yemeni_politics_2 = {
+		
+		icon = generic_political_discourse
+		
+		available = {
+			YEM = {
+				AND = {
+					exists = yes
+					NOT = {
+						has_war_with = ITA
+					}
+				}
+			}
+		}
+		
+		visible = {
+			YEM = {
+				AND = {
+					has_idea = fascist_influence
+					NOT = {
+						is_puppet_of = ITA
+					}
+				}
+			}
+		}
+		
+		modifier = {
+			political_power_gain = -0.15
+		}
+		
+		remove_effect = {
+			YEM = {
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.10
+				}
+			}
+		}
+		
+		cost = 10
+		
+		days_remove = 70
+	}
+	
+	establish_yemeni_protectorate = {
+		
+		icon = ger_reichskommissariats
+		
+		available = {
+			YEM = {
+				AND = {
+					exists = yes
+					NOT = {
+						has_war_with = ITA
+					}
+					fascism > 0.5
+				}
+			}
+		}
+		
+		fire_only_once	= yes
+		
+		complete_effect = {
+			puppet = YEM
+			YEM = {
+				set_politics = {
+					ruling_party = fascism
+				}
+			}
+		}
+		
+		cost = 50
+	}
+}

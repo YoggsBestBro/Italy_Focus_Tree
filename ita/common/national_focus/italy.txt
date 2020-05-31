@@ -1,0 +1,569 @@
+focus_tree = {
+	id = italian_focus
+
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 25
+			tag = ITA
+		}
+	}
+	
+	default = no
+	
+	continuous_focus_position = { x = 50 y = 1100 } 
+	
+	focus = {
+		id = ITA_victory_in_africa
+		icon = GFX_goal_generic_propaganda
+		x = 10
+		y = 0
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT }
+		
+		available = {
+			OR = {
+			owns_state = 271
+			ETH = { is_puppet_of = ITA }
+			}
+		}
+		
+		completion_reward = {
+			add_stability = 0.1
+			add_war_support = 0.1
+		}
+	}
+	
+	focus = {
+		id = ITA_east_african_industries
+		icon = GFX_focus_generic_industry_1
+		x = -8
+		y = 1
+		relative_position_id = ITA_victory_in_africa
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		prerequisite = { focus = ITA_victory_in_africa }
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		available = {
+			AND = {
+				OR = {
+					271 = { is_owned_and_controlled_by = ITA }
+					ETH = { is_puppet_of = ITA }
+				}
+				OR = {
+					550 = { is_owned_and_controlled_by = ITA }
+					ERI = { is_puppet_of = ITA }
+				}
+				OR = {
+					559 = { is_owned_and_controlled_by = ITA }
+					SOM = { is_puppet_of = ITA }
+				}
+			}
+		}
+		
+		completion_reward = {
+			271 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+			550 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			559 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ITA_build_the_imperial_road
+		icon = GFX_goal_generic_construct_infrastructure
+		x = -1
+		y = 1
+		relative_position_id = ITA_east_african_industries
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		prerequisite = { focus = ITA_east_african_industries }
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		available = {
+			AND = {
+				OR = {
+					271 = { is_owned_and_controlled_by = ITA }
+					ETH = { is_puppet_of = ITA }
+				}
+				OR = {
+					550 = { is_owned_and_controlled_by = ITA }
+					ERI = { is_puppet_of = ITA }
+				}
+				OR = {
+					559 = { is_owned_and_controlled_by = ITA }
+					SOM = { is_puppet_of = ITA }
+				}
+			}
+		}
+		
+		completion_reward = {
+			271 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+			550 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+			559 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ITA_expand_the_linea_dell_impero
+		icon = GFX_goal_generic_air_production
+		x = 0
+		y = 1
+		relative_position_id = ITA_build_the_imperial_road
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		prerequisite = { focus = ITA_build_the_imperial_road }
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		available = {
+			AND = {
+				OR = {
+					271 = { is_owned_and_controlled_by = ITA }
+					ETH = { is_puppet_of = ITA }
+				}
+				OR = {
+					550 = { is_owned_and_controlled_by = ITA }
+					ERI = { is_puppet_of = ITA }
+				}
+				OR = {
+					559 = { is_owned_and_controlled_by = ITA }
+					SOM = { is_puppet_of = ITA }
+				}
+			}
+		}
+		
+		completion_reward = {
+			271 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+			}
+			550 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+			}
+			559 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ITA_appoint_rodolfo_graziani
+		icon = GFX_goal_generic_secret_weapon
+		x = 1
+		y = 1
+		relative_position_id = ITA_east_african_industries
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		
+		prerequisite = { focus = ITA_east_african_industries }
+		available_if_capitulated = yes
+		search_filters = { }
+		
+		available = {
+			OR = {
+			owns_state = 271
+			ETH = { is_puppet_of = ITA }
+			}
+		}
+		
+		completion_reward = {
+			add_ideas = rodolfo_graziani_1
+		}
+	}
+	
+	focus = {
+		id = ITA_east_african_armament_industries
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 0
+		y = 1
+		relative_position_id = ITA_appoint_rodolfo_graziani
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		prerequisite = { focus = ITA_appoint_rodolfo_graziani }
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		available = {
+			AND = {
+				OR = {
+					271 = { is_owned_and_controlled_by = ITA }
+					ETH = { is_puppet_of = ITA }
+				}
+				OR = {
+					550 = { is_owned_and_controlled_by = ITA }
+					ERI = { is_puppet_of = ITA }
+				}
+				OR = {
+					559 = { is_owned_and_controlled_by = ITA }
+					SOM = { is_puppet_of = ITA }
+				}
+			}
+		}
+		
+		completion_reward = {
+			271 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			550 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			559 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ITA_replace_graziani
+		icon = GFX_goal_generic_political_pressure
+		x = 1
+		y = 1
+		relative_position_id = ITA_expand_the_linea_dell_impero
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		
+		prerequisite = { focus = ITA_east_african_armament_industries }
+		prerequisite = { focus = ITA_expand_the_linea_dell_impero }
+		available_if_capitulated = yes
+		search_filters = {  }
+		
+		available = {
+			has_idea = rodolfo_graziani_1
+		}
+		
+		completion_reward = {
+			swap_ideas = { 
+				remove_idea = rodolfo_graziani_1
+				add_idea = amedeo_duke_of_aosta
+			}
+		}
+	}
+	
+	focus = {
+		id = ITA_encourage_emigration
+		icon = GFX_goal_generic_propaganda
+		x = 0
+		y = 1
+		relative_position_id = ITA_replace_graziani
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		
+		prerequisite = { focus = ITA_replace_graziani }
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		
+		available = {
+			AND = {
+				OR = {
+					271 = { is_owned_and_controlled_by = ITA }
+					ETH = { is_puppet_of = ITA }
+				}
+				OR = {
+					550 = { is_owned_and_controlled_by = ITA }
+					ERI = { is_puppet_of = ITA }
+				}
+				OR = {
+					559 = { is_owned_and_controlled_by = ITA }
+					SOM = { is_puppet_of = ITA }
+				}
+				has_idea = amedeo_duke_of_aosta
+			}
+		}
+		
+		completion_reward = {
+			unlock_decision_category_tooltip = ITA_encourage_emigration
+		}
+	}
+	
+	focus = {
+		id = ITA_all_hail_il_duce
+		icon = GFX_focus_ger_assassinate_mussolini
+		x = 0
+		y = 1
+		relative_position_id = ITA_victory_in_africa
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		
+		
+		prerequisite = { focus = ITA_victory_in_africa }
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
+		
+		available = {
+			has_government = fascism
+		}
+		
+		completion_reward = {
+			add_country_leader_trait = il_duce
+		}
+	}
+	
+	focus = {
+		id = ITA_leave_the_league_of_nations
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = 0
+		y = 1
+		relative_position_id = ITA_all_hail_il_duce
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		
+		prerequisite = { focus = ITA_all_hail_il_duce }
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {
+			OR = {
+				owns_state = 271
+				ETH = {
+					is_puppet_of = ITA
+				}
+			}
+		}
+		
+		completion_reward = {
+			add_political_power = 80
+		}
+	}
+	
+	focus = {
+		id = ITA_reestablish_diplomatic_ties
+		icon = GFX_goal_generic_improve_relations
+		x = 0
+		y = 1
+		relative_position_id = ITA_leave_the_league_of_nations
+		cost = 3
+		ai_will_do = {
+			factor = 1
+		}
+		
+		
+		prerequisite = { focus = ITA_leave_the_league_of_nations }
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		available = {
+			
+		}
+		
+		completion_reward = {
+			YEM = {
+				add_opinion_modifier = { target = ITA modifier = medium_increase }
+			}
+			GER = {
+				add_opinion_modifier = { target = ITA modifier = large_increase }
+			}
+			YUG = {
+				add_opinion_modifier = { target = ITA modifier = small_increase }
+			}
+			ALB = {
+				add_opinion_modifier = { target = ITA modifier = medium_increase }
+			}
+			if = {
+				limit = {
+					SPR = {
+						has_government = fascism
+					}
+				}
+				SPR = {
+					add_opinion_modifier = { target = ITA modifier = large_increase }
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ITA_renew_italo_yemeni_treaty
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = -5
+		y = 1
+		relative_position_id = ITA_reestablish_diplomatic_ties
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		
+		prerequisite = { focus = ITA_reestablish_diplomatic_ties }
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+		
+		available = {
+			
+		}
+		
+		completion_reward = {
+			add_political_power = 100
+			give_guarantee = YEM
+			unlock_decision_category_tooltip = ITA_influence_in_yemen
+		}
+	}
+	
+	focus = {
+		id = ITA_tax_the_red_sea
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		x = -1
+		y = 1
+		relative_position_id = ITA_renew_italo_yemeni_treaty
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		
+		
+		prerequisite = { focus = ITA_renew_italo_yemeni_treaty }
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		available = {
+			OR = {
+				YEM = {
+					is_puppet_of = ITA
+				}
+				293 = {
+					is_owned_and_controlled_by = ITA
+				}
+			}
+			550 = {
+				is_owned_and_controlled_by = ITA
+			}
+		}
+		
+		completion_reward = {
+			293 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			550 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			ENG = {
+				add_opinion_modifier = { target = ITA modifier = medium_decrease }
+				add_opinion_modifier = { target = YEM modifier = medium_decrease }
+			}
+		}
+	}
+}

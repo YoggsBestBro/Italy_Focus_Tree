@@ -1,0 +1,25 @@
+###############
+######ITA######
+###############
+
+ITA_encourage_emigration = {
+	icon = generic_propaganda
+	
+	allowed = {
+		tag = ITA
+	}
+	visible = {
+		has_completed_focus = ITA_encourage_emigration
+	}
+}
+
+ITA_influence_in_yemen = {
+	icon = generic_political_actions
+	
+	allowed = {
+		tag = ITA
+	}
+	visible = {
+		has_completed_focus = ITA_renew_italo_yemeni_treaty
+	}
+}
